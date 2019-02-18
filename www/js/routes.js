@@ -19,21 +19,21 @@ angular.module('app.routes', [])
     }
   })
 
-  .state('menu.cart', {
+  .state('menu.cadastrar', {
     url: '/page2',
     views: {
       'side-menu21': {
-        templateUrl: 'templates/cart.html',
+        templateUrl: 'templates/cadastrarTreinamento.html',
         controller: 'cartCtrl'
       }
     }
   })
 
-  .state('menu.informaEs', {
+  .state('menu.informacoes', {
     url: '/info',
     views: {
       'side-menu21': {
-        templateUrl: 'templates/informaEs.html',
+        templateUrl: 'templates/informacoes.html',
         controller: 'informaEsCtrl'
       }
     }
@@ -46,7 +46,7 @@ angular.module('app.routes', [])
   })
 
   .state('login', {
-    url: '/page4',
+    url: '/login',
     templateUrl: 'templates/login.html',
     controller: 'loginCtrl'
   })
@@ -61,7 +61,7 @@ angular.module('app.routes', [])
     }
   })
 
-$urlRouterProvider.otherwise('/page4')
+$urlRouterProvider.otherwise('/login')
 
 
 });

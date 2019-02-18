@@ -1,18 +1,21 @@
-<ion-view title="Login" id="page4">
+<ion-view title="Login" id="pageLogin">
   <ion-content padding="true" class="has-header">
     <form id="login-form1" class="list">
       <ion-list id="login-list3">
         <label class="item item-input" id="login-input1">
           <span class="input-label">Email</span>
-          <input type="email" placeholder="">
+          <input type="email" placeholder="Digite seu Email">
         </label>
         <label class="item item-input" id="login-input2">
           <span class="input-label">Password</span>
-          <input type="password" placeholder="">
+          <input type="password" placeholder="Digite sua Senha">
         </label>
       </ion-list>
       <div class="spacer" style="height: 40px;"></div>
-      <a ui-sref="menu.home()" id="login-button1" class="button button-stable button-block">Log in</a>
+      <a ui-sref="menu.home()" id="login-button1" 
+        class="button button-stable button-block button-balanced">
+        Log in
+      </a>
     </form>
   </ion-content>
 </ion-view>
