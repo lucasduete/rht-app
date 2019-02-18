@@ -1,45 +1,44 @@
 <ion-view title="Cadastrar Treinamento" id="cadastrarTreinamento">
-  <ion-content padding="true" class="has-header">
-    <h1 id="detalhesTrainamento-heading2" style="color:#000000;">Nome do Treinamento</h1>
-    <div class="spacer" style="width: 288px; height: 33px;"></div>
-    <h3 id="detalhesTrainamento-heading3" style="color:#000000;">Detalhes:</h3>
-    <div id="detalhesTrainamento-markdown2" class="show-list-numbers-and-dots">
-      <p style="color:#000000;">Vagas Oferecidas:</p>
-    </div>
-    <div id="detalhesTrainamento-markdown3" class="show-list-numbers-and-dots">
-      <p style="color:#000000;">Quantidade Aulas:</p>
-    </div>
-    <div id="detalhesTrainamento-markdown4" class="show-list-numbers-and-dots">
-      <p style="color:#000000;">Data Início:</p>
-    </div>
-    <div id="detalhesTrainamento-markdown5" class="show-list-numbers-and-dots">
-      <p style="color:#000000;">Data Fim:</p>
-    </div>
-    <div id="detalhesTrainamento-container2">
-      <h4 id="detalhesTrainamento-heading4" style="color:#000000;">Dê uma nota:</h4>
-      <form id="detalhesTrainamento-form3" class="list">
-        <label class="item item-select" id="detalhesTrainamento-select1" name="nota">
-          <span class="input-label">Selecione a nota</span>
-          <select>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-            <option>6</option>
-            <option>7</option>
-          </select>
-        </label>
-        <button id="detalhesTrainamento-button3" style="font-size:-3px;" class="button button-positive button-block">Enviar!</button>
-      </form>
-    </div>
-    <div class="spacer" style="width: 288px; height: 30px;"></div>
-    <h3 id="detalhesTrainamento-heading5" style="color:#000000;">Indicadores</h3>
-    <div id="detalhesTrainamento-markdown6" class="show-list-numbers-and-dots">
-      <p style="color:#000000;">Aprovação:</p>
-    </div>
-    <div id="detalhesTrainamento-markdown7" class="show-list-numbers-and-dots">
-      <p style="color:#000000;">Vagas:</p>
-    </div>
-  </ion-content>
+
+    <ion-content padding="true" class="has-header">
+        <form id="cadastro-form1" class="list">
+          <ion-list id="cadastro-list1">
+            
+            <label class="item item-input" id="cadastro-input1" style="min-width: 35%;">
+              <span class="input-label">Nome:</span>
+              <input type="text" placeholder="Nome do Treinamento"
+                      style="margin-left: 8%;">
+            </label>
+
+            <label class="item item-input" id="cadastro-input2">
+              <span class="input-label">Vagas Oferecidas:</span>
+              <input type="number" min="0" max="1000" required
+                      placeholder="Digite a quantidade"
+                      style="margin-left: 6%;">
+            </label>
+
+            <label class="item item-input" id="cadastro-input3">
+              <span class="input-label">Quantidade de Aulas:</span>
+              <input type="number" min="0" max="1000" required
+                      placeholder="Digite a quantidade">
+            </label>
+
+            <label class="item item-input" id="cadastro-input4">
+              <span class="input-label">Data de Início:</span>
+              <input type="date" required>
+            </label>
+
+            <label class="item item-input" id="cadastro-input5">
+              <span class="input-label">Data de Fim:</span>
+              <input type="date" required>
+            </label>
+
+          </ion-list>
+          <div class="spacer" style="height: 40px;"></div>
+          <a ui-sref="menu.home()" id="cadastro-button1" 
+            class="button button-stable button-block button-positive">
+            Cadastrar
+          </a>
+        </form>
+      </ion-content>
 </ion-view>
