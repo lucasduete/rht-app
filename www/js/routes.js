@@ -14,7 +14,7 @@ angular.module('app.routes', [])
       views: {
         'side-menu21': {
           templateUrl: 'templates/home.html',
-          controller: 'homeCtrl'
+          controller: 'treinamentoController'
         }
       }
   })
@@ -51,11 +51,11 @@ angular.module('app.routes', [])
     controller: 'loginController'
   })
 
-  .state('menu.detalhesTrainamento', {
+  .state('menu.detalhesTreinamento', {
     url: '/page5',
     views: {
       'side-menu21': {
-        templateUrl: 'templates/detalhesTrainamento.html',
+        templateUrl: 'templates/detalhesTreinamento.html',
         controller: 'detalhesTrainamentoCtrl'
       }
     }
