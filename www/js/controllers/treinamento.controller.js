@@ -1,7 +1,6 @@
 controllersManager.controller('treinamentoController', function ($scope, $rootScope, $http, $state, $ionicPopup, $ionicLoading) {
 
     $scope.trainings = [];
-    $scope.training = {};
 
     $scope.listAll = function () {
         var request = {
@@ -60,8 +59,10 @@ controllersManager.controller('treinamentoController', function ($scope, $rootSc
 
         $http(request)
         .then(function (response) {
-            // Atualiza os treinamentos no escopo
-            $scope.training = response.data;
+
+            // Salva o treinameto no LocalStorage
+            var data = angular.toJson(response.data);
+            localStorage.setItem("training", data);
             
             console.log(response.data);
 
