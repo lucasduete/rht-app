@@ -1,6 +1,7 @@
 controllersManager.controller('treinamentoController', function ($scope, $rootScope, $http, $state, $ionicPopup, $ionicLoading) {
 
     $scope.trainings = [];
+    $scope.training = {};
 
     var request = {
         method: 'GET',
@@ -48,10 +49,32 @@ controllersManager.controller('treinamentoController', function ($scope, $rootSc
         }
     });
 
-    // todo
     $scope.abrir = function (treinamentoId) {
-        // Redireciona para página inical
-		$state.go('menu.detalhesTreinamento');
+
+        var request = {
+            method: 'GET',
+            url: 'http://localhost:8080/training/' + treinamentoId
+        }
+
+        $http(request)
+        .then(function (response) {
+            // Atualiza os treinamentos no escopo
+            $scope.training = response.data;
+            
+            console.log(response.data);
+
+            // Redireciona para página inical
+            $state.go('menu.detalhesTreinamento');
+
+        }, function (err) {
+            console.log(err.data);
+
+            var alertPopup = $ionicPopup.alert({
+                title: 'Erro!',
+                template: 'Não foi possível recuperar os dados deste treinamento!'
+            });
+        });
+
     }
 
 })
