@@ -1,12 +1,12 @@
 controllersManager.controller('loginController', function ($scope, $rootScope, $http, $state, $ionicPopup, $ionicLoading) {
 
-    $scope.aluno = [];
-	$scope.loginUsuario = function (credenciais) {
+    $scope.user = {};
+	$scope.login = function (credenciais) {
 
 		var request = {
 			method: 'POST',
 			url: 'http://localhost:8080/appraiser/login',
-			data: 'login=' + credenciais.login + '&senha=' + credenciais.senha,
+			data: 'email=' + credenciais.email + '&password=' + credenciais.senha,
 			headers: {
 				'Content-Type': 'application/x-www-form-urlencoded'
 			}
@@ -14,14 +14,16 @@ controllersManager.controller('loginController', function ($scope, $rootScope, $
 
 		$http(request).then(function (response) {
 
-			//salvando no localStorage
-			$scope.aluno = response.data;
-			var dados = angular.toJson($scope.aluno);
-			localStorage.setItem("aluno", dados);
+			// Atualiza usuario no escopo
+			$scope.user = response.data;
+			
+			// Salva usuario no LocalStorage
+			var data = angular.toJson($scope.aluno);
+			localStorage.setItem("user", data);
 
             console.log(response.data);
             
-			//indo pra pagina inicial
+			// Redireciona para página inical
 			$state.go('menu.home');
 
 		}, function (err) {
