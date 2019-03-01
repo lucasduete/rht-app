@@ -9,14 +9,14 @@ angular.module('app.routes', [])
   $stateProvider
     
 
-      .state('menu.home', {
-    url: '/page1',
-    views: {
-      'side-menu21': {
-        templateUrl: 'templates/home.html',
-        controller: 'homeCtrl'
+    .state('menu.home', {
+      url: '/page1',
+      views: {
+        'side-menu21': {
+          templateUrl: 'templates/home.html',
+          controller: 'homeCtrl'
+        }
       }
-    }
   })
 
   .state('menu.cadastrar', {
