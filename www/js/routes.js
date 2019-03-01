@@ -48,7 +48,7 @@ angular.module('app.routes', [])
   .state('login', {
     url: '/login',
     templateUrl: 'templates/login.html',
-    controller: 'loginCtrl'
+    controller: 'loginController'
   })
 
   .state('menu.detalhesTrainamento', {
