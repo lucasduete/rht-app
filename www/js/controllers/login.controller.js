@@ -25,10 +25,10 @@ controllersManager.controller('loginController', function ($scope, $rootScope, $
 
 			// Atualiza usuario e tipo de usuario no escopo
 			$scope.user = response.data;
-			$scope.typeUser = "appraiser";
-			
-			// Salva usuario no LocalStorage
-			var data = angular.toJson($scope.aluno);
+			$scope.user.typeUser = "appraiser";
+
+			// Salva usuario e o tipo no LocalStorage
+			var data = angular.toJson($scope.user);
 			localStorage.setItem("user", data);
 
             console.log(response.data);
@@ -45,12 +45,12 @@ controllersManager.controller('loginController', function ($scope, $rootScope, $
 
 					// Atualiza usuario e tipo de usuario no escopo
 					$scope.user = response.data;
-					$scope.typeUser = "employee";
-					
-					// Salva usuario no LocalStorage
-					var data = angular.toJson($scope.aluno);
+					$scope.user.typeUser = "employee";
+
+					// Salva usuario e o tipo no LocalStorage
+					var data = angular.toJson($scope.user);
 					localStorage.setItem("user", data);
-		
+
 					console.log(response.data);
 					
 					// Redireciona para página inical
