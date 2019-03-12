@@ -20,7 +20,7 @@
       <form id="detalhesTrainamento-form3" class="list">
         <label class="item item-select" id="detalhesTrainamento-select1" name="nota">
           <span class="input-label">Selecione a nota</span>
-          <select>
+          <select data-ng-model="rating.points">
             <option>1</option>
             <option>2</option>
             <option>3</option>
@@ -30,7 +30,9 @@
             <option>7</option>
           </select>
         </label>
-        <button id="detalhesTrainamento-button3" style="font-size:-3px;" class="button button-positive button-block">Enviar!</button>
+        <button id="detalhesTrainamento-button3" 
+                style="font-size:-3px;" data-ng-click="enviarNota(rating.points, training.id)"
+                class="button button-positive button-block">Enviar!</button>
       </form>
     </div>
     <div class="spacer" style="width: 288px; height: 30px;"></div>
