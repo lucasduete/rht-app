@@ -14,6 +14,28 @@ controllersManager.controller('treinamentoDetailController', function ($scope, $
         console.log($scope.training);
     }();
 
+    $scope.renderEnviarNota = function() {
+        // Recupera o tipo de usuario do LocalStorage
+        var user = JSON.parse(localStorage.getItem("user"));
+        
+        if (user.typeUser == "employee") {
+            return true;
+        } else {
+            return false;
+        }
+    };
+
+    $scope.renderVerIndicadores = function() {
+        // Recupera o tipo de usuario do LocalStorage
+        var user = JSON.parse(localStorage.getItem("user"));
+        
+        if (user.typeUser == "appraiser") {
+            return true;
+        } else {
+            return false;
+        }
+    };
+
     $scope.cadastrar = function () {
         
         var request = {
