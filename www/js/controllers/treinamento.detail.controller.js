@@ -3,6 +3,8 @@ controllersManager.controller('treinamentoDetailController', function ($scope, $
     $scope.trainings = [];
     $scope.treinamento = {};
 
+    $scope.indicadores = {};
+
     $scope.retrieve = function () {
 
         // Salva o treinamento no LocalStorage
@@ -149,8 +151,53 @@ controllersManager.controller('treinamentoDetailController', function ($scope, $
                 });
             }
         });
+    }
 
+    $scope.loadIndicators = function (idTraining) {
+        
+        var requestRating = {
+			method: 'GET',
+			url: 'http://localhost:8080/indicator/rating/' + idTraining,
+        }
 
+        var requestVacancy = {
+			method: 'GET',
+			url: 'http://localhost:8080/indicator/vacancy/' + idTraining,
+        }
+        
+        $http(requestRating).then(function (response) {
+
+            $scope.indicadores.rating = response.data.value;
+            console.log("Rating Indicator : " + response.data.value);
+
+            $http(requestVacancy).then(function (response) {
+
+                $scope.indicadores.vacancy = response.data.value;
+                console.log("Rating Indicator : " + response.data.value);
+    
+            }, function (err) {
+                console.log(err.data);
+                
+                if (err.status == 500) {
+                    //alerta de erro
+                    var alertPopup = $ionicPopup.alert({
+                        title: 'Erro!',
+                        template: 'Servidor indisponível, tente novamente mais tarde'
+                    });
+                }
+            });
+        }, function (err) {
+            console.log(err);
+            console.log(err.data);
+            
+            if (err.status == 500) {
+                //alerta de erro
+                var alertPopup = $ionicPopup.alert({
+                    title: 'Erro!',
+                    template: 'Servidor indisponível, tente novamente mais tarde'
+                });
+            }
+        });
     }
 
 })

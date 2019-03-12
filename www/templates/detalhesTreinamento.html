@@ -36,13 +36,13 @@
       </form>
     </div>
     <div class="spacer" style="width: 288px; height: 30px;"></div>
-    <div data-ng-if="renderVerIndicadores()">
+    <div data-ng-if="renderVerIndicadores()" data-ng-init="loadIndicators(training.id)">
       <h3 id="detalhesTrainamento-heading5" style="color:#000000;">Indicadores</h3>
       <div id="detalhesTrainamento-markdown6" class="show-list-numbers-and-dots">
-        <p style="color:#000000;">Aprovação:</p>
+        <p style="color:#000000;">Aprovação: {{indicadores.rating}}</p>
       </div>
       <div id="detalhesTrainamento-markdown7" class="show-list-numbers-and-dots">
-        <p style="color:#000000;">Vagas:</p>
+        <p style="color:#000000;">Vagas Preenchidas: {{indicadores.vacancy}}</p>
       </div>
     </div>
   </ion-content>
