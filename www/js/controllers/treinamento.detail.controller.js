@@ -1,10 +1,12 @@
-controllersManager.controller('treinamentoDetailController', function ($scope, $rootScope, $http, $state, $ionicPopup, $ionicLoading) {
+controllersManager.controller('treinamentoDetailController', function ($scope, $rootScope, $http, $state, $ionicPopup, $ionicLoading, $ionicHistory) {
 
     $scope.trainings = [];
 
+    $scope.treinamento = {};
+
     $scope.retrieve = function () {
 
-        // Salva o treinameto no LocalStorage
+        // Salva o treinamento no LocalStorage
         var trainingJson = localStorage.getItem("training");
         
         $scope.training = JSON.parse(trainingJson);
@@ -12,24 +14,33 @@ controllersManager.controller('treinamentoDetailController', function ($scope, $
         console.log($scope.training);
     }();
 
-    $scope.cadastrar = function (treinameto) {
+    $scope.cadastrar = function () {
         
         var request = {
 			method: 'POST',
 			url: 'http://localhost:8080/training/',
-			data: treinameto,
+			data: $scope.treinamento,
         }
         
         $http(request).then(function (response) {
-    
+
+            console.log($scope.treinamento);
+
             var alertPopup = $ionicPopup.alert({
                 title: 'Sucess!',
-                template: 'Treinamento cadastrado com sucesso!'
+                template: 'Treinamento cadastrado com sucesso!',
+                buttons: [
+                    {
+                        text: "<b>OK!<b>",
+                        type: 'button-positive',
+                        onTap: function(e) {
+                            // Recarrega a pagina
+                            location.reload();
+                        }
+                    }
+                ]
             });
 
-            // Redireciona para página inical
-			$state.go('menu.home');
-    
         }, function (err) {
             console.log(err.data);
             
