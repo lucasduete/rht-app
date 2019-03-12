@@ -7,36 +7,36 @@
             <label class="item item-input" id="cadastro-input1" style="min-width: 35%;">
               <span class="input-label">Nome:</span>
               <input type="text" placeholder="Nome do Treinamento"
-                      style="margin-left: 8%;">
+                      style="margin-left: 8%;" data-ng-model="treinamento.name">
             </label>
 
             <label class="item item-input" id="cadastro-input2">
               <span class="input-label">Vagas Oferecidas:</span>
               <input type="number" min="0" max="1000" required
                       placeholder="Digite a quantidade"
-                      style="margin-left: 6%;">
+                      style="margin-left: 6%;" data-ng-model="treinamento.vacancyOffered">
             </label>
 
             <label class="item item-input" id="cadastro-input3">
               <span class="input-label">Quantidade de Aulas:</span>
               <input type="number" min="0" max="1000" required
-                      placeholder="Digite a quantidade">
+                      placeholder="Digite a quantidade" data-ng-model="treinamento.quantLesson">
             </label>
 
             <label class="item item-input" id="cadastro-input4">
               <span class="input-label">Data de Início:</span>
-              <input type="date" required>
+              <input type="date" required data-ng-model="treinamento.dateStart">
             </label>
 
             <label class="item item-input" id="cadastro-input5">
               <span class="input-label">Data de Fim:</span>
-              <input type="date" required>
+              <input type="date" required data-ng-model="treinamento.dateFinish">
             </label>
 
           </ion-list>
           <div class="spacer" style="height: 40px;"></div>
           <a ui-sref="menu.home()" id="cadastro-button1" 
-            class="button button-stable button-block button-positive">
+            class="button button-stable button-block button-positive" data-ng-click="cadastrar(treinamento)"> 
             Cadastrar
           </a>
         </form>
