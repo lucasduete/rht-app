@@ -48,7 +48,7 @@ controllersManager.controller('treinamentoController', function ($scope, $rootSc
                 });
             }
         });
-    }()
+    };
 
     $scope.abrir = function (treinamentoId) {
 
