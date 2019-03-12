@@ -24,7 +24,7 @@ angular.module('app.routes', [])
     views: {
       'side-menu21': {
         templateUrl: 'templates/cadastrarTreinamento.html',
-        controller: 'cartCtrl'
+        controller: 'treinamentoDetailController'
       }
     }
   })
