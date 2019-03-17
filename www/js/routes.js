@@ -19,7 +19,7 @@ angular.module('app.routes', [])
       }
   })
 
-  .state('menu.cadastrar', {
+  .state('menu.cadastrarTreinamento', {
     url: '/page2',
     views: {
       'side-menu21': {
