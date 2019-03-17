@@ -15,7 +15,7 @@
     <div id="detalhesTrainamento-markdown5" class="show-list-numbers-and-dots">
       <p style="color:#000000;">Data Fim: {{training.dateFinish}}</p>
     </div>
-    <div id="detalhesTrainamento-container2" data-ng-if="renderEnviarNota()">
+    <div id="detalhesTrainamento-container2" data-ng-if="renderUserEmployee()">
       <h4 id="detalhesTrainamento-heading4" style="color:#000000;">Dê uma nota:</h4>
       <form id="detalhesTrainamento-form3" class="list">
         <label class="item item-select" id="detalhesTrainamento-select1" name="nota">
@@ -36,7 +36,7 @@
       </form>
     </div>
     <div class="spacer" style="width: 288px; height: 30px;"></div>
-    <div data-ng-if="renderVerIndicadores()" data-ng-init="loadIndicators(training.id)">
+    <div data-ng-if="renderUserAppraiser()" data-ng-init="loadIndicators(training.id)">
       <h3 id="detalhesTrainamento-heading5" style="color:#000000;">Indicadores</h3>
       <div id="detalhesTrainamento-markdown6" class="show-list-numbers-and-dots">
         <p style="color:#000000;">Aprovação: {{indicadores.rating}}</p>

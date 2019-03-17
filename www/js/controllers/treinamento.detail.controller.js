@@ -15,7 +15,7 @@ controllersManager.controller('treinamentoDetailController', function ($scope, $
         console.log($scope.training);
     }();
 
-    $scope.renderEnviarNota = function() {
+    $scope.renderUserEmployee = function() {
         // Recupera o tipo de usuario do LocalStorage
         var user = JSON.parse(localStorage.getItem("user"));
         
@@ -26,7 +26,7 @@ controllersManager.controller('treinamentoDetailController', function ($scope, $
         }
     };
 
-    $scope.renderVerIndicadores = function() {
+    $scope.renderUserAppraiser = function() {
         // Recupera o tipo de usuario do LocalStorage
         var user = JSON.parse(localStorage.getItem("user"));
         
