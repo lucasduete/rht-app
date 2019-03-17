@@ -30,20 +30,35 @@
             <option>7</option>
           </select>
         </label>
-        <button id="detalhesTrainamento-button3" 
-                style="font-size:-3px;" data-ng-click="enviarNota(rating.points, training.id)"
-                class="button button-positive button-block">Enviar!</button>
+        
       </form>
     </div>
-    <div class="spacer" style="width: 288px; height: 30px;"></div>
-    <div data-ng-if="renderUserAppraiser()" data-ng-init="loadIndicators(training.id)">
+
+    <!-- Div de Elementos de usuario Appraiser -->
+    <div data-ng-if="renderUserAppraiser()" data-ng-init="loadIndicators(training.id)">    
+
+      <!-- Div para espaçamento entre item -->
+      <div class="spacer" style="width: 288px; height: 30px;"></div>
+
       <h3 id="detalhesTrainamento-heading5" style="color:#000000;">Indicadores</h3>
+    
       <div id="detalhesTrainamento-markdown6" class="show-list-numbers-and-dots">
         <p style="color:#000000;">Aprovação: {{indicadores.rating}}</p>
       </div>
+    
       <div id="detalhesTrainamento-markdown7" class="show-list-numbers-and-dots">
         <p style="color:#000000;">Vagas Preenchidas: {{indicadores.vacancy}}</p>
       </div>
+
+      <!-- Div para espaçamento entre item -->
+      <div class="spacer" style="width: 288px; height: 30px;"></div>
+
+      <!-- Botao para cadastrar pergunta ao treinamento -->
+      <button id="detalhesTrainamento-buttonCadastrarPergunta" 
+          style="font-size:-3px;" data-ng-click="cadastrarPergunta(training.id)"
+          class="button button-positive button-block">Cadastrar Pergunta!</button>
+
     </div>
+
   </ion-content>
 </ion-view>
