@@ -61,6 +61,16 @@ angular.module('app.routes', [])
     }
   })
 
+  .state('menu.cadastrarPergunta', {
+    url: '/cadastrarPergunta',
+    views: {
+      'side-menu21': {
+        templateUrl: 'templates/cadastrarPergunta.html',
+        controller: 'perguntaController'
+      }
+    }
+  })
+
 $urlRouterProvider.otherwise('/login')
 
 
