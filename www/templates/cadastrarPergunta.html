@@ -1,0 +1,51 @@
+<ion-view title="Cadastrar Treinamento" id="cadastrarPergunta">
+
+    <ion-content padding="true" class="has-header">
+        <form id="cadastro-form1" class="list">
+          <ion-list id="cadastro-list1">
+
+            <label class="item item-input" id="cadastrarPergunta-input1" style="min-width: 35%;">
+              <span class="input-label">Questão:</span>
+              <input type="text" placeholder="Digite a pergunta:"
+                      style="margin-left: 8%;" data-ng-model="pergunta.question">
+            </label>
+
+            <label class="item item-select" id="cadastrarPergunta-select1" name="typeQuestion">
+              <span class="input-label">Selecione o Tipo da Pergunta</span>
+              <select data-ng-model="pergunta.typeQuestion">
+                <option>ABERTA</option>
+                <option>FECHADA</option>
+                <option>PONTUACAO</option>
+              </select>
+            </label>
+
+            <label class="item item-input" id="cadastrarPergunta-opcao1" data-ng-if="pergunta.typeQuestion == 'FECHADA'">
+              <span class="input-label">Opção 1:</span>
+              <input type="text" required data-ng-model="pergunta.options[1]">
+            </label>
+
+            <label class="item item-input" id="cadastrarPergunta-opcao2" data-ng-if="pergunta.typeQuestion == 'FECHADA'">
+              <span class="input-label">Opção 2:</span>
+              <input type="text" required data-ng-model="pergunta.options[2]">
+            </label>
+
+            <label class="item item-input" id="cadastrarPergunta-opcao3" data-ng-if="pergunta.typeQuestion == 'FECHADA'">
+              <span class="input-label">Opção 3:</span>
+              <input type="text" required data-ng-model="pergunta.options[3]">
+            </label>
+
+            <label class="item item-input" id="cadastrarPergunta-opcao4" data-ng-if="pergunta.typeQuestion == 'FECHADA'">
+              <span class="input-label">Opção 4:</span>
+              <input type="text" required data-ng-model="pergunta.options[4]">
+            </label>
+
+          </ion-list>
+          <div class="spacer" style="height: 40px;"></div>
+          <a id="cadastrarPergunta-buttonCadastro" 
+                class="button button-stable button-block button-positive"
+             data-ng-click="cadastrar()"> 
+            Cadastrar
+          </a>
+        </form>
+      </ion-content>
+</ion-view>
