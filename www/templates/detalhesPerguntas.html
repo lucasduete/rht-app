@@ -2,7 +2,7 @@
   <ion-content padding="true" class="has-header">
 
 
-    <h1 id="home-heading1" style="color:#000000;">Treinamentos</h1>
+    <h1 id="home-heading1" style="color:#000000;">Perguntas</h1>
 
     <!-- Formulario para envio da resposta, cada tipo de resposta tem uma renderização -->
     <form id="detalhesTrainamento-form3" class="list">
@@ -35,9 +35,7 @@
             <label class="item item-select" name="nota">
               <span class="input-label">Selecione uma opção</span>
               <select data-ng-model="respostas[pergunta.id].content">
-                <option data-ng-repeat="opcao in pergunta.options">
-                  {{opcao}}
-                </option>
+                <option data-ng-repeat="opcao in pergunta.options">{{opcao}}</option>
               </select>
             </label>
 
