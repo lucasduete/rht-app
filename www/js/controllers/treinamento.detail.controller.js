@@ -37,6 +37,26 @@ controllersManager.controller('treinamentoDetailController', function ($scope, $
         }
     };
 
+    $scope.renderEnviarNota = function() {
+        // Recupera o treinamento do LocalStorage
+        var training = JSON.parse(localStorage.getItem("training"));
+
+        // Recupera o usuario do LocalStorage
+        var user = JSON.parse(localStorage.getItem("user"));        
+
+        var aux = true;
+
+        training.ratings.forEach(rating => {
+            
+            if (rating.employee.email === user.email) {
+                aux = false;
+            }
+            
+        });
+
+        return aux;
+    };
+
     $scope.enviarNota = function(ratingPoints, idTraining) {
 
         var user = JSON.parse(localStorage.getItem("user"));

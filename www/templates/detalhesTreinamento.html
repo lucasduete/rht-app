@@ -16,28 +16,32 @@
       <p style="color:#000000;">Data Fim: {{training.dateFinish}}</p>
     </div>
     <div id="detalhesTrainamento-container2" data-ng-if="renderUserEmployee()">
-      <h4 id="detalhesTrainamento-heading4" style="color:#000000;">Dê uma nota:</h4>
-      <form id="detalhesTrainamento-form3" class="list">
-        <label class="item item-select" id="detalhesTrainamento-select1" name="nota">
-          <span class="input-label">Selecione a nota</span>
-          <select data-ng-model="rating.points">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-            <option>6</option>
-            <option>7</option>
-          </select>
-        </label>
+      
+      <div data-ng-if="renderEnviarNota()">
 
-        <!-- Botão de Enviar nota -->
-        <button id="detalhesTrainamento-button3" 
-                style="font-size:-3px;" data-ng-click="enviarNota(rating.points, training.id)"
-                class="button button-positive button-block">Enviar Nota!</button>
-
-      </form>
-
+        <h4 id="detalhesTrainamento-heading4" style="color:#000000;">Dê uma nota:</h4>
+        <form id="detalhesTrainamento-form3" class="list">
+          <label class="item item-select" id="detalhesTrainamento-select1" name="nota" 
+                >
+            <span class="input-label">Selecione a nota</span>
+            <select data-ng-model="rating.points">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>6</option>
+              <option>7</option>
+            </select>
+          </label>
+  
+          <!-- Botão de Enviar nota -->
+          <button id="detalhesTrainamento-button3" 
+                  style="font-size:-3px;" data-ng-click="enviarNota(rating.points, training.id)"
+                  class="button button-positive button-block">Enviar Nota!</button>
+        </form>
+      </div>
+      
       <!-- Botao para responder perguntas do treinamento -->
       <button id="detalhesTrainamento-buttonResponderPergutas" 
       style="font-size:-3px;" data-ng-click="responderPerguntas(training.id)"
