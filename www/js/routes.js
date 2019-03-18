@@ -81,6 +81,16 @@ angular.module('app.routes', [])
     }
   })
 
+  .state('menu.listarPerguntas', {
+    url: '/listarPerguntas',
+    views: {
+      'side-menu21': {
+        templateUrl: 'templates/listarPerguntas.html',
+        controller: 'perguntaController'
+      }
+    }
+  })
+
 $urlRouterProvider.otherwise('/login')
 
 
