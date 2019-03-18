@@ -230,4 +230,34 @@ controllersManager.controller('treinamentoDetailController', function ($scope, $
 
     }
 
+    $scope.responderPerguntas = function (treinamentoId) {
+
+        var request = {
+            method: 'GET',
+            url: 'http://localhost:8080/training/' + treinamentoId
+        }
+
+        $http(request)
+        .then(function (response) {
+
+            // Salva o treinameto no LocalStorage
+            var data = angular.toJson(response.data);
+            localStorage.setItem("training", data);
+            
+            console.log(response.data);
+
+            // Redireciona para página inical
+            $state.go('menu.detalhesPerguntas');
+
+        }, function (err) {
+            console.log(err.data);
+
+            var alertPopup = $ionicPopup.alert({
+                title: 'Erro!',
+                template: 'Não foi possível recuperar os dados deste treinamento!'
+            });
+        });
+
+    }
+
 })
