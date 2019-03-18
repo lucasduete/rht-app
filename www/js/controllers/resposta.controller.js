@@ -5,12 +5,17 @@ controllersManager.controller('respostaController', function ($scope, $rootScope
 
     $scope.retrieve = function () {
 
-        // Salva o treinamento no LocalStorage
+        // Recupera o usuario do LocalStorage
+        var userJson = localStorage.getItem("user");
+
+        $scope.usuario = JSON.parse(userJson);
+
+        // Recupera o treinamento do LocalStorage
         var trainingJson = localStorage.getItem("training");
         
-        treinamento = JSON.parse(trainingJson);
+        $scope.treinamento = JSON.parse(trainingJson);
 
-        $scope.perguntas = treinamento.questions;
+        $scope.perguntas = $scope.treinamento.questions;
 
         console.log($scope.perguntas);
     }();
@@ -19,13 +24,28 @@ controllersManager.controller('respostaController', function ($scope, $rootScope
         
         var request = {
 			method: 'POST',
-			url: 'http://localhost:8080/question/' + $scope.treinamento.id,
+			url: 'http://localhost:8080/response/list',
 			data: $scope.respostas,
         }
+
+        // Define os atributos de idQuestion e emailEmployee
+        $scope.respostas.forEach(function(element, index, array) {
+            if(element != null) {
+                element.idQuestion = index;
+                element.emailEmployee = $scope.usuario.email;
+            }
+        });
+
+        // Remove itens vazios
+        $scope.respostas = $scope.respostas.filter(function (element) {
+            return element != null;
+        });
+
+        console.log($scope.respostas);
         
         $http(request).then(function (response) {
 
-            console.log($scope.pergunta);
+            console.log("Sucesso");
 
             var alertPopup = $ionicPopup.alert({
                 title: 'Sucess!',
