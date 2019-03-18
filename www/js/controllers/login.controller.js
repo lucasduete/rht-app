@@ -1,6 +1,12 @@
 controllersManager.controller('loginController', function ($scope, $rootScope, $http, $state, $ionicPopup, $ionicLoading) {
 
-    $scope.user = {};
+	$scope.user = {};
+	
+	$scope.cleanData = function () {
+		$scope.user = {};
+		localStorage.clear();
+	}();
+
 	$scope.login = function (credenciais) {
 
 		var requestLoginAppraiser = {
