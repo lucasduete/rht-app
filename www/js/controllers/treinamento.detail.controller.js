@@ -83,8 +83,8 @@ controllersManager.controller('treinamentoDetailController', function ($scope, $
                         text: "<b>OK!<b>",
                         type: 'button-positive',
                         onTap: function(e) {
-                            // Não faz nada
-                            // Para recarregar a pagina: location.reload();
+                            // Recarrega a pagina: 
+                            location.reload();
                         }
                     }
                 ]
