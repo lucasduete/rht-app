@@ -1,0 +1,23 @@
+<ion-view title="Perguntas do Treinamento" id="listarPerguntas">
+  <ion-content padding="true" class="has-header">
+
+
+    <h1 id="home-heading1" style="color:#000000;">Perguntas</h1>
+
+    <ion-list id="detalhesPerguntas-list1">
+
+      <!-- Intera entre as perguntas -->
+      <ion-item ng-repeat="pergunta in perguntas">
+
+        <h2 align="center"> 
+          {{pergunta.question}} - {{pergunta.typeQuestion}}
+        </h2>
+
+    </ion-item>
+
+    <button id="detalhesTrainamento-buttonCadastrarPergunta" 
+          style="font-size:-3px;" data-ng-click="cadastrarPergunta(treinamento.id)"
+          class="button button-positive button-block">Cadastrar Pergunta!</button>
+
+  </ion-content>
+</ion-view>
