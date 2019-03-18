@@ -1,0 +1,82 @@
+<ion-view title="Perguntas do Treinamento" id="detalhesPerguntas">
+  <ion-content padding="true" class="has-header">
+
+
+    <h1 id="home-heading1" style="color:#000000;">Treinamentos</h1>
+
+    <!-- Formulario para envio da resposta, cada tipo de resposta tem uma renderização -->
+    <form id="detalhesTrainamento-form3" class="list">
+
+      <ion-list id="detalhesPerguntas-list1">
+
+        <!-- Intera entre as perguntas -->
+        <ion-item ng-repeat="pergunta in perguntas">
+  
+          <h2 align="center"> 
+            {{pergunta.question}}
+          </h2>
+
+          <!-- Caso seja uma pergunta aberta deixa-se um campo de texto para 
+            o usuário digitar a resposta -->
+          <div data-ng-if="pergunta.typeQuestion == 'ABERTA'">
+
+            <label class="item item-input">
+              <span class="input-label">Digite sua resposta:</span>
+              <input type="text" required data-ng-model="respostas[pergunta.id].content">
+            </label>
+          
+          </div>
+
+          <!-- Caso seja uma pergunta fechada mostra-se as opções para
+            que o usuário selecione uma -->
+          <div data-ng-if="pergunta.typeQuestion == 'FECHADA'">
+
+            <h4 style="color:#000000;">Selecione uma opção:</h4>
+            <label class="item item-select" name="nota">
+              <span class="input-label">Selecione uma opção</span>
+              <select data-ng-model="respostas[pergunta.id].content">
+                <option data-ng-repeat="opcao in pergunta.options">
+                  {{opcao}}
+                </option>
+              </select>
+            </label>
+
+          </div>
+
+          <!-- Caso seja uma pergunta de pontuação mostra-se as pontuações 
+            possíveis para que o usuario dê sua nota -->
+          <div data-ng-if="pergunta.typeQuestion == 'PONTUACAO'">
+
+            <h4 style="color:#000000;">Selecione a nota:</h4>
+            <label class="item item-select" name="nota">
+              <span class="input-label">Selecione a nota</span>
+              <select data-ng-model="respostas[pergunta.id].content">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+              </select>
+            </label>
+
+          </div>
+
+        </ion-item>
+  
+      </ion-list>
+
+      <div class="spacer" style="width: 288px; height: 30px;"></div>
+
+      <!-- Botao para cadastrar pergunta ao treinamento -->
+      <button id="detalhesTrainamento-buttonCadastrarPergunta" 
+          style="font-size:-3px;" data-ng-click="enviarRespostas()"
+          class="button button-positive button-block">Enviar Respostas!</button>
+
+    </form>      
+
+
+  </ion-content>
+</ion-view>
+
