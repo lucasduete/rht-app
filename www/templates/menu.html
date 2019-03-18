@@ -15,7 +15,7 @@
     <ion-content padding="false" class="side-menu-left has-header ">
       <ion-list id="menu-list1">
         <ion-item id="menu-list-item1" ui-sref="menu.home()" menu-close="">Home</ion-item>
-        <ion-item id="menu-list-item2" ui-sref="menu.cadastrarTreinamento()" menu-close="">Cadastrar Treinamento</ion-item>
+        <ion-item id="menu-list-item2" ui-sref="menu.cadastrarTreinamento()" menu-close="" data-ng-if="treinamentoDetailController.renderUserAppraiser()">Cadastrar Treinamento</ion-item>
         <ion-item id="menu-list-item3" ui-sref="menu.informacoes()" menu-close="">Informações</ion-item>
         <ion-item id="menu-list-item4" ui-sref="login()" menu-close="">Sair</ion-item>
       </ion-list>
