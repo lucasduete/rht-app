@@ -7,11 +7,11 @@ controllersManager.controller('perguntaController', function ($scope, $rootScope
     $scope.retrieve = function () {
 
         // Salva o treinamento no LocalStorage
-        var trainingJson = localStorage.getItem("training");
-        
-        $scope.treinamento = JSON.parse(trainingJson);
+        $scope.treinamento =  JSON.parse(localStorage.getItem("training"));
 
-        console.log($scope.treinamento);
+        $scope.perguntas = $scope.treinamento.questions;
+        
+        console.log($scope.perguntas);
     }();
 
     $scope.cadastrar = function () {
@@ -64,6 +64,36 @@ controllersManager.controller('perguntaController', function ($scope, $rootScope
                 });
             }
         });
+    }
+
+    $scope.cadastrarPergunta = function (treinamentoId) {
+
+        var request = {
+            method: 'GET',
+            url: 'http://localhost:8080/training/' + treinamentoId
+        }
+
+        $http(request)
+        .then(function (response) {
+
+            // Salva o treinameto no LocalStorage
+            var data = angular.toJson(response.data);
+            localStorage.setItem("training", data);
+            
+            console.log(response.data);
+
+            // Redireciona para página inical
+            $state.go('menu.cadastrarPergunta');
+
+        }, function (err) {
+            console.log(err.data);
+
+            var alertPopup = $ionicPopup.alert({
+                title: 'Erro!',
+                template: 'Não foi possível recuperar os dados deste treinamento!'
+            });
+        });
+
     }
 
 })
