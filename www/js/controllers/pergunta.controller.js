@@ -96,4 +96,12 @@ controllersManager.controller('perguntaController', function ($scope, $rootScope
 
     }
 
+    $scope.renderPodeCadastrarPergunta = function() {
+
+        data = $scope.treinamento.dateFinish.split("/");
+        dataAcabou =  new Date(data[2], parseInt(data[1]) - 1, data[0]);
+
+        return !(new Date() > dataAcabou);
+    }
+
 })

@@ -37,8 +37,8 @@ controllersManager.controller('loginController', function ($scope, $rootScope, $
 			var data = angular.toJson($scope.user);
 			localStorage.setItem("user", data);
 
-            console.log(response.data);
-            
+			console.log(response.data);
+			
 			// Redireciona para página inical
 			$state.go('menu.home');
 
@@ -58,9 +58,10 @@ controllersManager.controller('loginController', function ($scope, $rootScope, $
 					localStorage.setItem("user", data);
 
 					console.log(response.data);
-					
+
 					// Redireciona para página inical
 					$state.go('menu.home');
+
 		
 				}, function (err) {
 					console.log(err.data);
