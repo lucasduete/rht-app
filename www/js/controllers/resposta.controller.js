@@ -55,6 +55,9 @@ controllersManager.controller('respostaController', function ($scope, $rootScope
                         text: "<b>OK!<b>",
                         type: 'button-positive',
                         onTap: function(e) {
+                            // Volta para a pagina do treinamento
+                            window.history.back();
+
                             // Recarrega a pagina
                             location.reload();
                         }
