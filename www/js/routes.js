@@ -71,6 +71,16 @@ angular.module('app.routes', [])
     }
   })
 
+  .state('menu.detalhesPerguntas', {
+    url: '/detalhesPerguntas',
+    views: {
+      'side-menu21': {
+        templateUrl: 'templates/detalhesPerguntas.html',
+        controller: 'respostaController'
+      }
+    }
+  })
+
 $urlRouterProvider.otherwise('/login')
 
 
